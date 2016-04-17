@@ -1,13 +1,15 @@
 from selenium.webdriver.common.by import By
 
 
-class LoginPageElements:
+class HomePageElements:
+
+        home_icon = (By.XPATH, "/html/body/header/div/a")
+
+        search_box = (By.XPATH, "/html/body/header/div/div/div/a[1]")
 
         login_button = (By.XPATH, "/html/body/header/div/div/div/a[2]")
 
         sign_up_button = (By.XPATH, "/html/body/header/div/div/div/a[1]")
-
-        search_box = (By.XPATH, "/html/body/header/div/div/div/a[1]")
 
         pick_a_username_box = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/dl[1]/dd/input")
 
