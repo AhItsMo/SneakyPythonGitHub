@@ -1,7 +1,7 @@
-from loginPage.LoginPageElements import LoginPageElements
+from LoginPage.LoginPageElements import LoginPageElements
 
 
-class LoginPageMethod:
+class LoginPageMethods:
 
     def sign_in_button(self, username, password):
         # Verify that clicking the Sign in button will navigate the user to the Home Page
