@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 from HomePage.HomePageElements import HomePageElements
-#from HomePage.HomePageMethods import
+from HomePage.HomePageMethods import HomePageMethods
 from LoginPage.LoginPageElements import LoginPageElements
 
 
@@ -16,6 +16,7 @@ class HomePageTests(unittest.TestCase):
     def test_login_button(self):
 #        Verify that clicking the Login button will navigate the user to the Login Page.
         self.driver.find_element(*HomePageElements.login_button).click()
+
 
     @classmethod
     def tearDownClass(cls):
