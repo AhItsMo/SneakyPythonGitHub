@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
-from HomePage.HomePageElements import HomePageElements
-from HomePage.HomePageMethods import HomePageMethods
+from HomePageBeforeLogin.HomePageBeforeLoginElements import HomePageElements
+from HomePageBeforeLogin.HomePageBeforeLoginMethods import HomePageMethods
 from LoginPage.LoginPageElements import LoginPageElements
 
 
