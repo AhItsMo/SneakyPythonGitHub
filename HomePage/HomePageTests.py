@@ -13,12 +13,13 @@ class HomePageTests(unittest.TestCase):
         cls.driver.get("https://github.com/")
 
     def test_login_button(self):
-        #Verify that clicking the Login button will navigate the user to the Login Page.
+#        Verify that clicking the Login button will navigate the user to the Login Page.
         self.driver.find_element(*HomePageElements.login_button).click()
-
 
     @classmethod
     def tearDownClass(cls):
+        cls.driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main()
