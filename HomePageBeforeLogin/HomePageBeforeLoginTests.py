@@ -13,10 +13,16 @@ class HomePageTests(unittest.TestCase):
         cls.driver.maximize_window()
         cls.driver.get("https://github.com/")
 
+#   Verify that clicking the Login button will navigate the user to the Login Page.
     def test_login_button(self):
-#        Verify that clicking the Login button will navigate the user to the Login Page.
-        self.driver.find_element(*HomePageElements.login_button).click()
+#   Click Sign In button
+        HomePageMethods.click_sign_in_button(self)
 
+#       Assert that the Sign in to GitHub label is displayed
+        self.assertTrue(self.driver.find_element(*LoginPageElements.sign_in_to_github_label).is_displayed())
+
+#       Navigate back to the Home Page
+        self.driver.get("https://github.com")
 
     @classmethod
     def tearDownClass(cls):
