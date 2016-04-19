@@ -7,13 +7,15 @@ class HomePageElements:
 
         search_box = (By.XPATH, "/html/body/header/div/div/div/a[1]")
 
-        login_button = (By.XPATH, "/html/body/header/div/div/div/a[2]")
+        sign_in_button = (By.XPATH, "/html/body/header/div/div/div/a[2]")
 
         sign_up_button = (By.XPATH, "/html/body/header/div/div/div/a[1]")
 
         pick_a_username_box = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/dl[1]/dd/input")
 
         your_email_address_box = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/dl[2]/dd/input")
+
+        create_a_password_box = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/dl[3]/dd/input")
 
         sign_up_for_github_button = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/button")
 
