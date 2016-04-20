@@ -1,6 +1,5 @@
 import unittest
 from selenium import webdriver
-from NavigationBar.NavigationBarElements import NavigationBarElements
 from NavigationBar.NavigationBarMethods import NavigationBarMethods
 from LoginPage.LoginPageMethods import LoginPageMethods
 
@@ -24,7 +23,7 @@ class LoginPageTest(unittest.TestCase):
         LoginPageMethods.sign_in_button(self, "DinaAli", "123@sta.com")
 
 #        Assert that the Navigation Bar is displayed, which means that login is successful.
-        self.assertTrue(self.driver.find_element(*NavigationBarElements.view_profile_drop_down).is_displayed())
+        self.assertTrue(LoginPageMethods.is_profile_drop_down_displayed(self), "drop down menu is not displayed")
 
 #        Sign out, in order to continue testing from the start point (Login Page)
         NavigationBarMethods.sign_out_list_item_click(self)
