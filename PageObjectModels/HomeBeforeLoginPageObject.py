@@ -5,7 +5,7 @@ class HomeBeforeLoginPageObject:
 
         home_icon = (By.XPATH, "/html/body/header/div/a")
 
-        search_box = (By.XPATH, "/html/body/header/div/div/div/a[1]")
+        search_box = (By.XPATH, "html/body/header/div/div/nav[2]/div/form/label/input")
 
         sign_in_button = (By.XPATH, "/html/body/header/div/div/div/a[2]")
 
