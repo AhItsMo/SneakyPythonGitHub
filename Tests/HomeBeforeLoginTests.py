@@ -4,7 +4,7 @@ from Methods.HomeBeforeLoginMethods import HomeBeforeLoginMethods
 from Methods.LoginMethods import LoginMethods
 from Methods.SearchResultsMethods import SearchResultsMethods
 from PageObjectModels.HomeBeforeLoginPageObject import HomeBeforeLoginPageObject
-from PageObjectModels.TermsOfServicePageObject import TermsOfServicePageObject
+from Methods.TermsOfServiceMethods import TermsOfServiceMethods
 
 
 class HomeTests(BaseTestCase):
@@ -31,10 +31,10 @@ class HomeTests(BaseTestCase):
         #   Navigate to github.com
         self.driver.get("https://github.com")
 
-        #   Search for the string "SneakyPythonGitHub"
+        #   Search for "SneakyPythonGitHub" using the Home Page Search Box
         HomeBeforeLoginMethods.use_search_box(self, "SneakyPythonGitHub")
 
-        #   Verify that Search Label is displayed on the Search Results page
+        #   Verify that Search Label is displayed on the Search Results page Which means the Search Page is displayed.
         SearchResultsMethods.search_label_text_is_displayed_correctly(self)
 
         #   Navigate back to the Home Page
@@ -51,13 +51,15 @@ class HomeTests(BaseTestCase):
         #   Click the Terms of Service link
         self.driver.find_element(*HomeBeforeLoginPageObject.terms_of_service_link).click()
 
+        #   Switch to the new window that has just opened after clicking the Terms of Service Link
+        #   At the same time, save the original window handle
+        original_window_handle = TermsOfServiceMethods.switch_to_terms_of_service_browser_window(self)
 
-        self.driver.switch_to_window(self.driver.window_handles[-1])
-        github_terms_of_service_label = self.driver.find_element\
-            (*TermsOfServicePageObject.github_terms_of_service_label)
-        self.assertEqual(github_terms_of_service_label.text, "GitHub Terms of Service",
-                         "GitHub Terms of Service Label is not displayed correctly")
-        #
+        #   Verify that the Terms of Service Page is displayed in another window
+        TermsOfServiceMethods.terms_of_service_page_is_displayed(self)
+
+        #   Close the new Window of the Terms Of Service
+        TermsOfServiceMethods.close_terms_of_service_browser_window(self, original_window_handle)
 
         #   Navigate back to the Home Page
         self.driver.get("https://github.com")
