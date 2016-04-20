@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class LoginPageElements:
+class LoginPageObject:
 
     home_icon = (By.XPATH, "/html/body/div[2]/div/a")
     username_box = (By.ID, "login_field")

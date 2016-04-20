@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class HomePageElements:
+class HomeBeforeLoginPageObject:
 
         home_icon = (By.XPATH, "/html/body/header/div/a")
 
