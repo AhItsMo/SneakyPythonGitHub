@@ -1,4 +1,7 @@
 import unittest
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(sys.path[0], os.pardir)))
 from Utilities.BaseTestCase import BaseTestCase
 from Methods.HomeBeforeLoginMethods import HomeBeforeLoginMethods
 from Methods.LoginMethods import LoginMethods
@@ -63,4 +66,4 @@ class HomeTests(BaseTestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
