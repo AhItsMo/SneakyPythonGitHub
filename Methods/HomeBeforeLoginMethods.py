@@ -13,4 +13,6 @@ class HomeBeforeLoginMethods:
         search_box.clear()
         search_box.send_keys(search_string + Keys.RETURN)
 
-
+    #   Verify that the Terms of Service link is displayed on the Home Page
+    def terms_of_service_link_is_displayed(self):
+        return self.driver.find_element(*HomeBeforeLoginPageObject.terms_of_service_link).is_displayed()
