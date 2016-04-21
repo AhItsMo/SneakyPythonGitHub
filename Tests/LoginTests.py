@@ -1,17 +1,17 @@
 import unittest
 from Utilities.BaseTestCase import BaseTestCase
-
-from selenium import webdriver
-
 from Methods.LoginMethods import LoginMethods
 from Methods.NavigationBarMethods import NavigationBarMethods
+from ddt import ddt, data, unpack
+
 
 
 class LoginTests(BaseTestCase):
-
-    def test_sign_in(self):
+    @data(("path of excel sheet, name of sheet)
+    @unpack
+    def test_sign_in(self, username, password):
 #        Execute the Login Method, in order to log in as DinaAli
-        LoginMethods.sign_in_button(self, "DinaAli", "123@sta.com")
+        LoginMethods.sign_in_button(self, username, password)
 
 #        Assert that the Navigation Bar is displayed, which means that login is successful.
         self.assertTrue(LoginMethods.is_profile_drop_down_displayed(self), "drop down menu is not displayed")
