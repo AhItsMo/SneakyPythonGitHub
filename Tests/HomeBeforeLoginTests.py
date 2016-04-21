@@ -1,4 +1,7 @@
 import unittest
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(sys.path[0], os.pardir)))
 from Utilities.BaseTestCase import BaseTestCase
 from Methods.HomeBeforeLoginMethods import HomeBeforeLoginMethods
 from Methods.LoginMethods import LoginMethods
@@ -46,7 +49,7 @@ class HomeTests(BaseTestCase):
         self.driver.get("https://github.com/")
 
         #   Assert that the Terms of Service link is displayed
-        self.assertTrue(self.driver.find_element(*HomeBeforeLoginPageObject.terms_of_service_link).is_displayed())
+        self.assertTrue(HomeBeforeLoginMethods.terms_of_service_link_is_displayed(self))
 
         #   Click the Terms of Service link
         self.driver.find_element(*HomeBeforeLoginPageObject.terms_of_service_link).click()
@@ -61,9 +64,6 @@ class HomeTests(BaseTestCase):
         #   Close the new Window of the Terms Of Service
         TermsOfServiceMethods.close_terms_of_service_browser_window(self, original_window_handle)
 
-        #   Navigate back to the Home Page
-        self.driver.get("https://github.com")
-
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
