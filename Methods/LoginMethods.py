@@ -11,6 +11,10 @@ class LoginMethods:
         self.driver.find_element(*LoginPageObject.password_box).send_keys(password)
         self.driver.find_element(*LoginPageObject.sign_in_button).click()
 
+    # Verify that clicking the forget password button will navigate the user to the Reset your password Page
+    def forget_password_text(self):
+        self.driver.find_element(*LoginPageObject.forget_password).click()
+
     #   Return whether the Profile Drop down is displayed
     def is_profile_drop_down_displayed(self):
         return self.driver.find_element(*NavigationBarPageObject.view_profile_drop_down).is_displayed()
