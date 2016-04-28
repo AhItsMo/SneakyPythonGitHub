@@ -1,4 +1,2 @@
 # SneakyPythonGitHub
-ReadMe.
-vghjhkuhk
-hgfdgfgf
+No .idea directory now.
