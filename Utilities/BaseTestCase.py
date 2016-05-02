@@ -10,9 +10,9 @@ class BaseTestCase(unittest.TestCase):
         cls.driver.implicitly_wait(30)
         cls.driver.maximize_window()
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     cls.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
 if __name__ == '__main__':
     unittest.main()
