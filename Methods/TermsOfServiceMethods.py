@@ -13,7 +13,7 @@ class TermsOfServiceMethods:
     def terms_of_service_page_is_displayed(self):
         #   Verify that the Page Title is displayed correctly
         self.assertEqual(self.driver.title, "GitHub Terms of Service - User Documentation",
-                         "GitHub Terms of Service Label is not displayed correctly")
+                         "GitHub Terms of Service Page is not loaded. Incorrect page title: " + self.driver.title)
 
     #   Close the new window of the Terms Of Service page.
     def close_terms_of_service_browser_window(self, original_window_handle):

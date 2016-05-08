@@ -6,20 +6,20 @@ from Utilities.BaseTestCase import BaseTestCase
 from Methods.HomeBeforeLoginMethods import HomeBeforeLoginMethods
 from Methods.LoginMethods import LoginMethods
 from Methods.SearchResultsMethods import SearchResultsMethods
-from PageObjectModels.HomeBeforeLoginPageObject import HomeBeforeLoginPageObject
+from PageObjectModels.HomeBeforeLoginPage import HomeBeforeLoginPage
 from Methods.TermsOfServiceMethods import TermsOfServiceMethods
 
 
 class HomeTests(BaseTestCase):
 
     #   Verify that clicking the Login button will navigate the user to the Login Page.
-    def test_login_button(self):
+    def test_one_login_button(self):
+        home_page = HomeBeforeLoginPage(self.driver)
 
-        #   Navigate to github.com
-        self.driver.get("https://github.com/")
+        home_page._validate_page(self.driver)
 
         #   Click Sign In button
-        HomeBeforeLoginMethods.click_sign_in_button(self)
+        home_page.click_sign_in_button()
 
         #   Assert that the Sign in to GitHub label is displayed
         self.assertTrue(LoginMethods.sign_in_to_github_label_is_displayed(self))
@@ -52,7 +52,7 @@ class HomeTests(BaseTestCase):
         self.assertTrue(HomeBeforeLoginMethods.terms_of_service_link_is_displayed(self))
 
         #   Click the Terms of Service link
-        self.driver.find_element(*HomeBeforeLoginPageObject.terms_of_service_link).click()
+        self.driver.find_element(*HomeBeforeLoginPage.terms_of_service_link).click()
 
         #   Switch to the new window that has just opened after clicking the Terms of Service Link
         #   At the same time, save the original window handle
