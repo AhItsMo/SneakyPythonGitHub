@@ -10,22 +10,27 @@ from PageObjectModels.HomeBeforeLoginPage import HomeBeforeLoginPage
 from Methods.TermsOfServiceMethods import TermsOfServiceMethods
 
 
-class HomeTests(BaseTestCase):
+class HomeBeforeLoginTests(BaseTestCase):
 
-    #   Verify that clicking the Login button will navigate the user to the Login Page.
-    def test_one_login_button(self):
+    #   Verify that all Page Elements are loaded correctly
+    def test_01_all_elements_are_loaded_correctly(self):
         home_page = HomeBeforeLoginPage(self.driver)
 
-        home_page._validate_page(self.driver)
+        #   Verify that all Page Elements can be found
+        home_page.validate_page_elements(home_page.page_elements_list)
+
+    #   Verify that clicking the Login button will navigate the user to the Login Page.
+    def test_02_click_login_button(self):
+        home_page = HomeBeforeLoginPage(self.driver)
 
         #   Click Sign In button
         home_page.click_sign_in_button()
 
-        #   Assert that the Sign in to GitHub label is displayed
-        self.assertTrue(LoginMethods.sign_in_to_github_label_is_displayed(self))
+        #   Verify that the Login Page is loaded
+        home_page.current_page_title_verification(self, "Sign in to GitHub · GitHub")
 
         #   Navigate back to the Home Page
-        self.driver.get("https://github.com")
+        home_page.go_to_url(home_page.url)
 
     #  Verify that entering a text in the search box and pressing Enter will navigate the user to the
     #  Search Results Page.

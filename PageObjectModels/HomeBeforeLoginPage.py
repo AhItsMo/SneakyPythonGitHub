@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from Utilities.BasePage import BasePage
-from Utilities.BasePage import InvalidPageException
 
 
 class HomeBeforeLoginPage(BasePage):
@@ -20,20 +19,19 @@ class HomeBeforeLoginPage(BasePage):
     sign_up_for_github_button_2 = (By.XPATH, "/html/body/div[4]/div[4]/div/div/div[1]/a")
     welcome_home_developers_label = (By.XPATH, "/html/body/div[4]/div[2]/div[1]/h2")
 
+    page_elements_list = [home_icon, search_box, sign_in_button, sign_up_button, pick_a_username_box,
+                          your_email_address_box, create_a_password_box, sign_up_for_github_button,
+                          terms_of_service_link, privacy_policy_link, sign_up_for_github_button_2,
+                          welcome_home_developers_label]
+
+    url = "https://github.com"
+
     #   Methods
 
     #   Initialization
     def __init__(self, driver):
         super(HomeBeforeLoginPage, self).__init__(driver)
         self.driver.get("https://github.com/")
-
-    #   Validate that the page is loaded: Check that an element can be found
-    def _validate_page(self, driver):
-        try:
-            self.driver.find_element(*self.welcome_home_developers_label)
-
-        except:
-            raise InvalidPageException("Home Page is not loaded. Current page title: " + self.driver.title)
 
     #   Click the Sign In button on Home Page
     def click_sign_in_button(self):
