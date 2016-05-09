@@ -4,6 +4,9 @@ from selenium.webdriver.common.by import By
 
 
 class LoginPage(BasePage):
+    #   Constants
+    url = "https://github.com/login"
+    title = "Sign in to GitHub · GitHub"
 
     #   Locators
     home_icon = (By.XPATH, "/html/body/div[2]/div/a")

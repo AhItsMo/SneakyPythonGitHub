@@ -1,4 +1,4 @@
-from PageObjectModels.TermsOfServicePageObject import TermsOfServicePageObject
+from PageObjectModels.TermsOfServicePage import TermsOfServicePage
 
 
 class TermsOfServiceMethods:

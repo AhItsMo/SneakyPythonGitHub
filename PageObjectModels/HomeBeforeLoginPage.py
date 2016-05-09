@@ -4,6 +4,9 @@ from Utilities.BasePage import BasePage
 
 
 class HomeBeforeLoginPage(BasePage):
+    #   Constants
+    url = "https://github.com"
+    title = "How people build software · GitHub"
 
     #   Locators
     home_icon = (By.XPATH, "/html/body/header/div/a")
@@ -24,8 +27,6 @@ class HomeBeforeLoginPage(BasePage):
                           terms_of_service_link, privacy_policy_link, sign_up_for_github_button_2,
                           welcome_home_developers_label]
 
-    url = "https://github.com"
-
     #   Methods
 
     #   Initialization
@@ -43,6 +44,6 @@ class HomeBeforeLoginPage(BasePage):
         search_box.clear()
         search_box.send_keys(search_string + Keys.RETURN)
 
-    #   Verify that the Terms of Service link is displayed on the Home Page
-    def terms_of_service_link_is_displayed(self):
-        return self.driver.find_element(*self.terms_of_service_link).is_displayed()
+    #   Click Terms of Service link
+    def click_terms_of_service_link(self):
+        self.driver.find_element(*self.terms_of_service_link).click()
