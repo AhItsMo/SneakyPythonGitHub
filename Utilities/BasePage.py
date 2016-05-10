@@ -1,8 +1,5 @@
 import xlrd
 from selenium.webdriver.common.by import By
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(sys.path[0], os.pardir)))
 
 
 class BasePage(object):
@@ -58,7 +55,7 @@ class BasePage(object):
         # create an empty ist to get data
         rows = []
         # open excel workbook and get excel sheet
-        book = xlrd.open_workbook('SneakyPythonGitHubTestData.xlsx')
+        book = xlrd.open_workbook('..\Tests\SneakyPythonGitHubTestData.xlsx')
         sheet = book.sheet_by_name(sheet_name)
         for row_index in range(1, sheet.nrows):
             rows.append(list(sheet.row_values(row_index, 0, sheet.ncols)))

@@ -2,9 +2,6 @@ import unittest
 from PageObjectModels.LoginPage import LoginPage
 from Utilities.BaseTestCase import BaseTestCase
 from ddt import ddt, data, unpack
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(sys.path[0], os.pardir)))
 
 
 @ddt
