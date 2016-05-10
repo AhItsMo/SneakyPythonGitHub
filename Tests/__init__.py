@@ -1,1 +1,1 @@
-__all__ = ['HomeBeforeLoginTests', 'LoginTests', 'SneakyPythonGitHubTestData']
+__all__ = ['HomeBeforeLoginTests', 'LoginTests']

@@ -1,5 +1,4 @@
 from Utilities.BasePage import BasePage
-from PageObjectModels.NavigationBarPageObject import NavigationBarPageObject
 from selenium.webdriver.common.by import By
 
 
