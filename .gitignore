@@ -16,6 +16,7 @@ Reports\**\*
 .idea/encodings.xml
 .idea/modules.xml
 .idea/SneakyPythonGitHub.iml
+tests/.cache
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids

@@ -1,27 +1,16 @@
 import unittest
 from Tests import *
+from Utilities.BaseTestSuite import BaseTestSuite
 
-# get the directory path to output report file
-# dir = os.getcwd()
+#   This list contains the desired Test Files to be executed. This is a Full Test, all files are listed.
+selected_tests = [
+    unittest.TestLoader().loadTestsFromTestCase(HomeBeforeLoginTests.HomeBeforeLoginTests),
+    unittest.TestLoader().loadTestsFromTestCase(LoginTests.LoginTests)
+]
 
-# get all tests from HomeBeforeLoginTests and LoginTests classes
-home_before_login_tests = unittest.TestLoader().loadTestsFromTestCase(HomeBeforeLoginTests.HomeBeforeLoginTests)
-login_tests = unittest.TestLoader().loadTestsFromTestCase(LoginTests.LoginTests)
+#   Description and File Name are used to customize the Test Report HTML file.
+description = "Full Test Suite"
+file_name = "FullTestSuite"
 
-# create a test suite combining search_test and home_page_test
-full_test = unittest.TestSuite([home_before_login_tests, login_tests])
-
-# open the report file
-# outfile = open(dir + "\FullTestReport.html", "w")
-
-unittest.TextTestRunner(verbosity=2).run(full_test)
-
-# # configure HTMLTestRunner options
-# runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='Test Report', description='System Full Test')
-# runner = nose.run()
-#
-# # run the suite using HTMLTestRunner
-# runner.run(full_test)
-
-# if __name__ == '__main__':
-#     unittest.main()
+#   Executing the listed selected tests.
+BaseTestSuite.run_selected_tests(selected_tests, file_name, description)
