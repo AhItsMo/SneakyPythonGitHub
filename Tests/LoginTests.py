@@ -1,31 +1,41 @@
 import unittest
+from PageObjectModels.LoginPage import LoginPage
+from Utilities.BaseTestCase import BaseTestCase
+from ddt import ddt, data, unpack
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(sys.path[0], os.pardir)))
-from selenium import webdriver
-from Utilities.BaseTestCase import BaseTestCase
-from Methods.LoginMethods import LoginMethods
-from Methods.NavigationBarMethods import NavigationBarMethods
-from ddt import ddt, data, unpack
 
 
+@ddt
 class LoginTests(BaseTestCase):
-    @data("D:\Automation")
+
+    #   Verify that all Page Elements are loaded correctly
+    def test_01_all_elements_are_loaded_correctly(self):
+        login_page = LoginPage(self.driver)
+
+        #   Verify that all Page Elements can be found
+        login_page.validate_page_elements(login_page.page_elements_list)
+
+    @data(*LoginPage.get_data_from_excel("LoginCredentials"))
     @unpack
-    def test_sign_in(self, username, password):
-        #    Execute the Login Method, in order to log in as DinaAli
-        LoginMethods.sign_in_button(self, username, password)
+    def test_02_sign_in(self, username, password, is_valid, comment):
+        login_page = LoginPage(self.driver)
 
-        #   Assert that the Navigation Bar is displayed, which means that login is successful.
-        self.assertTrue(LoginMethods.is_profile_drop_down_displayed(self), "drop down menu is not displayed")
+        #    Execute the Login Method using the data from the Excel sheet
+        login_page.sign_in(username, password)
 
-        #   Sign out, in order to continue testing from the start point (Login Page)
-        NavigationBarMethods.sign_out_list_item_click(self)
-        self.driver.get("https://github.com/login")
+        #   Determine the outcome based on the validity of the credentials
+        if is_valid:
+            #   Assert that the Navigation Bar is displayed, which means that login is successful.
+            login_page.is_profile_drop_down_displayed(self)
+            #   Sign out, in order to continue testing from the start point (Login Page)
+            login_page.sign_out()
+            login_page.go_to_url(login_page.url)
 
-    def test_forget_password(self):
-        #   Execute the login Method by using forget password button
-        LoginMethods.forget_password_text(self)
+        else:
+            #   Assert that a Login error occurred by verifying that an error message is displayed.
+            login_page.is_login_error_message_displayed(self)
 
 
 if __name__ == '__main__':

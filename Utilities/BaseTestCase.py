@@ -1,5 +1,4 @@
 import unittest
-
 from selenium import webdriver
 
 
@@ -15,4 +14,4 @@ class BaseTestCase(unittest.TestCase):
         cls.driver.quit()
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
