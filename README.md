@@ -25,3 +25,8 @@ POC for the test automation of GitHub with Selenium and Python
         - Each Test Class contains a set of test cases, _usually_ executed on the same page.
         - Each Test Case name starts with "test_xx_", where xx is an incremental counter.
         - To add more Tests, use HomeBeforeLoginTests as a referece.
+
+    # Test Suites:
+        - Add new Test Suites designed just like FullTest Test Suite.
+        - Add a new Executable for the created Test Suites just like FullTestSuite.bat file.
+        - No need to edit the BaseTestSuite file.
