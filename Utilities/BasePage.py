@@ -22,7 +22,8 @@ class BasePage(object):
                 self.driver.find_element(*page_elements_list[each_element])
 
         except:
-            raise InvalidPageException("The Page is not loaded. Current page title: " + self.driver.title)
+            raise InvalidPageException("The Page is not loaded. Current page title: " + self.driver.title +
+                                       ". Missing element is: " + str(page_elements_list[each_element]))
 
     # Sign out from the current logged in user.
     def sign_out(self):
