@@ -6,7 +6,7 @@ class BaseTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Firefox()
-        cls.driver.implicitly_wait(30)
+        cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
 
     @classmethod
