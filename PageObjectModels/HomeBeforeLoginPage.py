@@ -9,16 +9,16 @@ class HomeBeforeLoginPage(BasePage):
     title = "How people build software · GitHub"
 
     #   Locators
-    home_icon = (By.XPATH, "/html/body/header/div/a")
-    search_box = (By.XPATH, "html/body/header/div/div/nav[2]/div/form/label/input")
-    sign_in_button = (By.XPATH, "/html/body/header/div/div/div/a[2]")
-    sign_up_button = (By.XPATH, "/html/body/header/div/div/div/a[1]")
-    pick_a_username_box = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/dl[1]/dd/input")
-    your_email_address_box = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/dl[2]/dd/input")
-    create_a_password_box = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/dl[3]/dd/input")
+    home_icon = (By.CSS_SELECTOR, "body > header > div > a > svg")
+    search_box = (By.NAME, "q")
+    sign_in_button = (By.CSS_SELECTOR, "body > header > div > div > div > a.btn.site-header-actions-btn.mr-2")
+    sign_up_button = (By.CSS_SELECTOR, "body > header > div > div > div > a.btn.btn-primary.site-header-actions-btn")
+    pick_a_username_box = (By.NAME, "user[login]")
+    your_email_address_box = (By.NAME, "user[email]")
+    create_a_password_box = (By.NAME, "user[password]")
     sign_up_for_github_button = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/button")
-    terms_of_service_link = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/p/a[1]")
-    privacy_policy_link = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/p/a[2]")
+    terms_of_service_link = (By.LINK_TEXT, "terms of service")
+    privacy_policy_link = (By.LINK_TEXT, "privacy policy")
     sign_up_for_github_button_2 = (By.XPATH, "html/body/div[4]/div[5]/div/div/div[1]/a")
     welcome_home_developers_label = (By.XPATH, "html/body/div[4]/div[3]/div[1]/h2")
 
@@ -32,7 +32,7 @@ class HomeBeforeLoginPage(BasePage):
     #   Initialization
     def __init__(self, driver):
         super(HomeBeforeLoginPage, self).__init__(driver)
-        self.driver.get("https://github.com/")
+        self.driver.get(self.url)
 
     #   Click the Sign In button on Home Page
     def click_sign_in_button(self):
