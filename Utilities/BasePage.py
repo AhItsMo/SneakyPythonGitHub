@@ -17,13 +17,14 @@ class BasePage(object):
 
     #   Finding all Page Elements.
     def validate_page_elements(self, page_elements_list):
-        try:
-            for each_element in range(len(page_elements_list)):
-                self.driver.find_element(*page_elements_list[each_element])
 
-        except:
-            raise InvalidPageException("The Page is not loaded. Current page title: " + self.driver.title +
-                                       ". Missing element is: " + str(page_elements_list[each_element]))
+            for each_element in range(len(page_elements_list)):
+                try:
+                    self.driver.find_element(*page_elements_list[each_element])
+                    raise InvalidPageException("Element Loaded successfully " + self.driver.title + "Element name is: " + str(page_elements_list[each_element]))
+                except:
+                    raise InvalidPageException("The Page is not loaded. Current page title: " + self.driver.title +
+                                               ". Missing element is: " + str(page_elements_list[each_element]))
 
     # Sign out from the current logged in user.
     def sign_out(self):
