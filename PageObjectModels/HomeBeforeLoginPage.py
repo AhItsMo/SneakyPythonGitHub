@@ -19,7 +19,7 @@ class HomeBeforeLoginPage(BasePage):
     sign_up_for_github_button = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/button")
     terms_of_service_link = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/p/a[1]")
     privacy_policy_link = (By.XPATH, "/html/body/div[4]/div[1]/div/div/div[2]/div[1]/form/p/a[2]")
-    sign_up_for_github_button_2 = (By.XPATH, "/html/body/div[4]/div[4]/div/div/div[1]/a")
+    sign_up_for_github_button_2 = (By.XPATH, "html/body/div[4]/div[5]/div/div/div[1]/a")
     welcome_home_developers_label = (By.XPATH, "/html/body/div[4]/div[2]/div[1]/h2")
 
     page_elements_list = [home_icon, search_box, sign_in_button, sign_up_button, pick_a_username_box,
