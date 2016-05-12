@@ -1,13 +1,12 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from Utilities.BasePage import BasePage
-from PageObjectModels.LoginPage import LoginPage
 
 
-class HelloWorldGitHubPage(BasePage):
+class CreateNewRepositoryPage(BasePage):
     #   Constants
-    url = "https://guides.github.com/activities/hello-world/"
-    title = "Hello World · GitHub Guides"
+    url = "https://github.com/new"
+    title = "Create a New Repository"
 
     #   Locators
 
@@ -17,5 +16,6 @@ class HelloWorldGitHubPage(BasePage):
 
     #   Initialization
     def __init__(self, driver):
-        super(HelloWorldGitHubPage, self).__init__(driver)
+        super(CreateNewRepositoryPage, self).__init__(driver)
         self.driver.get(self.url)
+

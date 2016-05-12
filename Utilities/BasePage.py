@@ -10,6 +10,9 @@ class BasePage(object):
     username_box = (By.ID, "login_field")
     password_box = (By.ID, "password")
     sign_in_button = (By.XPATH, "/html/body/div[4]/div[1]/div/form/div[4]/input[3]")
+    create_new_dropdown = (By.CSS_SELECTOR, "#user-links > li:nth-child(2) > a > svg > path")
+    new_repository_list_item = (By.CSS_SELECTOR, "#user-links > li.header-nav-item.dropdown.js-menu-container.active > "
+                                                 "div > ul > a:nth-child(1)")
 
     #   Properties
 
@@ -37,9 +40,9 @@ class BasePage(object):
                       str(page_elements_list[each_element]) + ". Current page title: " + self.driver.title)
 
                 #   Append a string to the "Validation Errors" list.
-                validation_errors.append("No Such Element Exception. Element #" + str(each_element+1))
+                validation_errors.append("No Such Element Exception. Element #" + str(each_element + 1))
 
-        #   Assert that the "Validation Errors" list is empty, to determine if the Test Case passed or failed.
+        # Assert that the "Validation Errors" list is empty, to determine if the Test Case passed or failed.
         current_test.assertEqual([], validation_errors)
 
     # Sign out from the current logged in user.
@@ -65,6 +68,11 @@ class BasePage(object):
         self.driver.close()
         self.driver.switch_to_window(self.driver.window_handles[0])
 
+    #   Create a New Repository from the "Create new" drop-down list
+    def open_create_new_dropdown(self):
+        self.driver.find_element(*self.create_new_dropdown).click()
+        self.driver.find_element(*self.new_repository_list_item).click()
+
     #   Pre-test conditional login (if the user is not already logged in)
     def pretest_login(self):
         try:
@@ -76,7 +84,7 @@ class BasePage(object):
             self.driver.find_element(*self.password_box).send_keys("000000aa")
             self.driver.find_element(*self.sign_in_button).click()
 
-    #   read data from a certain sheet in the Test Data workbook "SneakyPythonGitHubTestData.xlsx"
+    # read data from a certain sheet in the Test Data workbook "SneakyPythonGitHubTestData.xlsx"
     @staticmethod
     def get_data_from_excel(sheet_name):
         # create an empty ist to get data
