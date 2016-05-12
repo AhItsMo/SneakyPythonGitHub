@@ -13,7 +13,7 @@ class HomeBeforeLoginTests(BaseTestCase):
         home_page = HomeBeforeLoginPage(self.driver)
 
         #   Verify that all Page Elements can be found
-        home_page.validate_page_elements(home_page.page_elements_list)
+        home_page.validate_page_elements(self, home_page.page_elements_list)
 
     #   Verify that clicking the Login button will navigate the user to the Login Page.
     def test_02_click_login_button(self):

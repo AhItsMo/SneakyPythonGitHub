@@ -20,15 +20,27 @@ class BasePage(object):
         self.driver = driver
 
     #   Finding all Page Elements.
-    def validate_page_elements(self, page_elements_list):
+    def validate_page_elements(self, current_test, page_elements_list):
+        #   Create a list to capture all validation errors and continue Test Case execution.
+        from selenium.common.exceptions import NoSuchElementException
+        validation_errors = []
 
-            for each_element in range(len(page_elements_list)):
-                try:
-                    self.driver.find_element(*page_elements_list[each_element])
-                    raise InvalidPageException("Element Loaded successfully " + self.driver.title + "Element name is: " + str(page_elements_list[each_element]))
-                except:
-                    raise InvalidPageException("The Page is not loaded. Current page title: " + self.driver.title +
-                                               ". Missing element is: " + str(page_elements_list[each_element]))
+        for each_element in range(len(page_elements_list)):
+            #   Try to find the element. No exception will occur if the element exists
+            try:
+                self.driver.find_element(*page_elements_list[each_element])
+
+            # The element is not found and "No Such Element Exception" is raised
+            except NoSuchElementException:
+                #   Print the missing element in the output report
+                print("The following element is missing: " +
+                      str(page_elements_list[each_element]) + ". Current page title: " + self.driver.title)
+
+                #   Append a string to the "Validation Errors" list.
+                validation_errors.append("No Such Element Exception. Element #" + str(each_element+1))
+
+        #   Assert that the "Validation Errors" list is empty, to determine if the Test Case passed or failed.
+        current_test.assertEqual([], validation_errors)
 
     # Sign out from the current logged in user.
     def sign_out(self):

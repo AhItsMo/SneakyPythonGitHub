@@ -12,7 +12,7 @@ class LoginTests(BaseTestCase):
         login_page = LoginPage(self.driver)
 
         #   Verify that all Page Elements can be found
-        login_page.validate_page_elements(login_page.page_elements_list)
+        login_page.validate_page_elements(self, login_page.page_elements_list)
 
     @data(*LoginPage.get_data_from_excel("LoginCredentials"))
     @unpack

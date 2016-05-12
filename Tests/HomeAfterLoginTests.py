@@ -10,7 +10,7 @@ class HomeAfterLoginTests(BaseTestCase):
         home_page = HomeAfterLoginPage.HomeAfterLoginPage(self.driver)
 
         #   Verify that all Page Elements can be found
-        home_page.validate_page_elements(home_page.page_elements_list)
+        home_page.validate_page_elements(self, home_page.page_elements_list)
 
     #   Verify that Let's get started! button will navigate the user to Hello World GitHub guide
     def test_02_lets_get_started_button(self):
