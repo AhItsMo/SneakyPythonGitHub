@@ -1,13 +1,15 @@
 # SneakyPythonGitHub
-POC for the test automation of GitHub with Selenium and Python
+POC for the test automation of GitHub with Selenium WebDriver and Python
 
-# Installed packages and plugins
+# Installed packages
 - selenium
 - pytest-html
 - pytest-capturelog
 - nose
 - ddt
 - xlrd
+
+# Installed plugins
 - .ignore
 - CMD Support
 - Markdown support
