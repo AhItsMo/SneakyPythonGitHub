@@ -5,7 +5,7 @@ from Utilities.BaseTestSuite import BaseTestSuite
 #   This list contains the desired Test Files to be executed. This is a Full Test, all files are listed.
 selected_tests = [
     unittest.TestLoader().loadTestsFromTestCase(HomeBeforeLoginTests.HomeBeforeLoginTests)
-    # unittest.TestLoader().loadTestsFromTestCase(HomeBeforeLoginTests.AfterLoginTests)
+    , unittest.TestLoader().loadTestsFromTestCase(HomeBeforeLoginTests.AfterLoginTests)
 ]
 
 #   Description and File Name are used to customize the Test Report HTML file.
