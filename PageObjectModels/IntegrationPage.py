@@ -6,25 +6,22 @@ from PageObjectModels.HomeAfterLoginPage import HomeAfterLoginPage
 class IntegrationPage(BasePage):
 
     #   Constants
-    url = "https://github.com/"
-    title = "https://github.com/integrations"
+    url = "https://github.com/integrations"
+    title = "Integrations Directory"
 
     #   Locators
-    view_profile_drop_down = (By.CLASS_NAME, "header-nav-link name tooltipped tooltipped-sw js-menu-target")
-    integration_view = (By.CLASS_NAME, "dropdown-item")
     integrations_directory_text = (By.LINK_TEXT, "Integrations Directory")
-    your_dashboard_button = (By.CLASS_NAME, "btn site-header-actions-btn")
+    your_dashboard_button = (By.XPATH, "html/body/header/div/div/div/a")
 
-
-    page_elements_list = [view_profile_drop_down, integration_view, integrations_directory_text, your_dashboard_button]
+    page_elements_list = [integrations_directory_text, your_dashboard_button]
 
     #   Methods
 
     #   Initialization
     def __init__(self, driver):
-        super(HomeAfterLoginPage, self).__init__(driver)
-        self.driver.get(self.url)
+        super(IntegrationPage, self).__init__(driver)
         self.pretest_login()
+        self.driver.get(self.url)
 
     #   Click on the Drop Down List on Home Page
     def click_view_profile_drop_list(self):
