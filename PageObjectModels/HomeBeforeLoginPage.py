@@ -22,10 +22,7 @@ class HomeBeforeLoginPage(BasePage):
     sign_up_for_github_button_2 = (By.XPATH, "html/body/div[4]/div[5]/div/div/div[1]/a")
     welcome_home_developers_label = (By.XPATH, "html/body/div[4]/div[3]/div[1]/h2")
 
-    page_elements_list = [home_icon, search_box, sign_in_button, sign_up_button, pick_a_username_box,
-                          your_email_address_box, create_a_password_box, sign_up_for_github_button,
-                          terms_of_service_link, privacy_policy_link, sign_up_for_github_button_2,
-                          welcome_home_developers_label]
+    dropdown - item
 
     #   Methods
 
