@@ -1,11 +1,14 @@
 import unittest
 from selenium import webdriver
+import os
 
 
 class BaseTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.driver = webdriver.Firefox()
+        chromedriver = (os.path.dirname(os.getcwd()) + "/Utilities/chromedriver")
+        os.environ["webdriver.chrome.driver"] = chromedriver
+        cls.driver = webdriver.Chrome(chromedriver)
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
 

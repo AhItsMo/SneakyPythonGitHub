@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from Utilities.BasePage import BasePage
-from PageObjectModels.HomeAfterLoginPage import HomeAfterLoginPage
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
 
 
 class IntegrationPage(BasePage):
@@ -11,33 +12,46 @@ class IntegrationPage(BasePage):
 
     #   Locators
     integrations_directory_text = (By.LINK_TEXT, "Integrations Directory")
-    your_dashboard_button = (By.XPATH, "html/body/header/div/div/div/a")
+    filter_integrations_search_box = (By.ID, "integration-filter-field")
+    tools_displayed = (By.CLASS_NAME,"intgrs-lstng-item-link")
 
-    page_elements_list = [integrations_directory_text, your_dashboard_button]
+    page_elements_list = [integrations_directory_text, filter_integrations_search_box]
 
     #   Methods
 
     #   Initialization
     def __init__(self, driver):
         super(IntegrationPage, self).__init__(driver)
-        self.pretest_login()
         self.driver.get(self.url)
-
-    #   Click on the Drop Down List on Home Page
-    def click_view_profile_drop_list(self):
-        self.driver.find_element(*self.view_profile_drop_down).click()
-
-    #   Click the Integration Text on Drop Down List
-    def click_integration_text(self):
-        self.driver.find_element(*self.integration_text).click()
 
     #  Verify that Integrations Directory Link is displayed
     def integrations_directory_text_is_displayed(self):
         try:
-            self.driver.find_element(*self.integration_text).is_displayed()
+            self.driver.find_element(*self.integrations_directory_text).is_displayed()
+            assert "Integrations Directory" in self.driver.find_element(*self.integrations_directory_text).text
         except:
             print("Integrations Directory Link is not displayed")
 
-    #   Click on the Your Dashboard Button
-    def click_your_dashboard_button(self):
-        self.driver.find_element(*self.your_dashboard_button).click()
+    #   Search for string using the Filter Integration Box
+    def use_filter_integration_search_box(self, search_string):
+        self.driver.find_element(*self.filter_integrations_search_box).send_keys(search_string)
+
+
+    def is_results_displayed(self):
+        try:
+            list_of_element = self.driver.find_elements(*self.tools_displayed)
+            list_of_displayed_element = []
+            for i in range (0, len(list_of_element)):
+                if list_of_element[i].is_displayed():
+                    list_of_displayed_element.append(list_of_element[i])
+                    print(list_of_element[i])
+
+            if len(list_of_displayed_element) > 0:
+                print("Number of found elements is: " + str(len(list_of_displayed_element)))
+                return True
+
+        except NoSuchElementException:
+            return False
+
+
+
