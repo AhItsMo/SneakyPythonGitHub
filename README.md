@@ -18,6 +18,10 @@ POC for the test automation of GitHub with Selenium WebDriver and Python
 - Option 1: Run the .bat files (in Executables directory) directly from Windows Explorer.
 - Option 2: In PyCharm, right-click the .bat files (in Executables directory) and select 'Run CMD script'
 
+# WebDriver Selection
+- Change '**Driver**' value in **TestConfiguration.json** file.
+- Accepted entries are: '**Firefox**' and '**Chrome**'.
+
 # Modifications Instructions
     # Page Objects:
         - Each Page has a separate file that contains its elements locators and its methods.
