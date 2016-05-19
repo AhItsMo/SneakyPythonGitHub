@@ -18,6 +18,7 @@ POC for the test automation of GitHub with Selenium WebDriver and Python
 - ddt
 - xlrd
 - ipdb
+- behave
 
 # Installed plugins
 - .ignore
