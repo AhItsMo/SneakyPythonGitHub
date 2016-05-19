@@ -24,6 +24,7 @@ POC for the test automation of GitHub with Selenium WebDriver and Python
 - .ignore
 - CMD Support
 - Markdown support
+- Gherkin
 
 # Execution Instructions
 - Option 1: Run the .bat files (in Executables directory) directly from Windows Explorer.
