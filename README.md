@@ -1,6 +1,15 @@
 # SneakyPythonGitHub
 POC for the test automation of GitHub with Selenium WebDriver and Python
 
+# Directories Description
+- Executables: Contains .bat files that executes pre-selected tests from CMD or Windows Explorer.
+- Features: Contains tests developed using BDD.
+- PageObjectModels: Contains the locators and methods for the in-testing-scope pages of GitHub.
+- Reports: (Ignored by Git) Contains the Execution Reports generated after running a Test Suite.
+- Test Suites: Contains Test Suite files that specify which tests to run for any given Test Suite.
+- Tests: Contains Test Case files for the in-testing-scope features of GitHub.
+- Utilities: Contains generic files used by Tests and POMs.
+
 # Installed packages
 - selenium
 - pytest-html
@@ -8,6 +17,7 @@ POC for the test automation of GitHub with Selenium WebDriver and Python
 - nose
 - ddt
 - xlrd
+- ipdb
 
 # Installed plugins
 - .ignore

@@ -1,4 +1,6 @@
 import xlrd
+import string
+import random
 from selenium.webdriver.common.by import By
 
 
@@ -9,7 +11,7 @@ class BasePage(object):
     sign_out_list_item = (By.XPATH, "/html/body/div[2]/div/ul[2]/li[3]/div/div/form/button")
     username_box = (By.ID, "login_field")
     password_box = (By.ID, "password")
-    sign_in_button = (By.XPATH, "/html/body/div[4]/div[1]/div/form/div[4]/input[3]")
+    login_sign_in_button = (By.XPATH, ".//*[@id='login']/form/div[4]/input[3]")
     create_new_dropdown = (By.CSS_SELECTOR, "#user-links > li:nth-child(2) > a > svg > path")
     new_repository_list_item = (By.CSS_SELECTOR, "#user-links > li.header-nav-item.dropdown.js-menu-container.active > "
                                                  "div > ul > a:nth-child(1)")
@@ -51,9 +53,10 @@ class BasePage(object):
         self.driver.find_element(*self.sign_out_list_item).click()
 
     #   Verify current page title
-    def current_page_title_verification(self, current_page, expected_page_title):
-        current_page.assertRegex(self.driver.title, expected_page_title,
-                                 "The Expected Page is not loaded. Current page title is: " + self.driver.title)
+    def current_page_title_verification(self, current_test, expected_page_title):
+        return current_test.assertRegex(self.driver.title, expected_page_title,
+                                        "The Expected Page is not loaded. Current page title is: " + self.driver.title)
+
 
     #   Navigate to URL
     def go_to_url(self, url):
@@ -82,7 +85,7 @@ class BasePage(object):
             self.driver.get("https://github.com/login")
             self.driver.find_element(*self.username_box).send_keys("sneakypythontestuser")
             self.driver.find_element(*self.password_box).send_keys("000000aa")
-            self.driver.find_element(*self.sign_in_button).click()
+            self.driver.find_element(*self.login_sign_in_button).click()
 
     # read data from a certain sheet in the Test Data workbook "SneakyPythonGitHubTestData.xlsx"
     @staticmethod
@@ -95,6 +98,11 @@ class BasePage(object):
         for row_index in range(1, sheet.nrows):
             rows.append(list(sheet.row_values(row_index, 0, sheet.ncols)))
         return rows
+
+    #   Generate a random string of 6 characters using uppercase letters and numbers.
+    @staticmethod
+    def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+        return ''.join(random.choice(chars) for _ in range(size))
 
 
 class InvalidPageException(Exception):

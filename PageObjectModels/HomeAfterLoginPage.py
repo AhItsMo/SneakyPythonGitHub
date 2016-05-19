@@ -30,3 +30,7 @@ class HomeAfterLoginPage(BasePage):
     #   Click Let's get started! button
     def click_lets_get_started_button(self):
         self.driver.find_element(*self.lets_get_started_button).click()
+
+    #   Click New Repository Button
+    def click_new_repository_button(self):
+        self.driver.find_element(*self.new_repository_button).click()

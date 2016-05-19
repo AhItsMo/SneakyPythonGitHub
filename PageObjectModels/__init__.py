@@ -1,1 +1,2 @@
-__all__ = ['HomeBeforeLoginPage', 'LoginPage', 'SearchResultsPage']
+__all__ = ['HomeBeforeLoginPage', 'LoginPage', 'SearchResultsPage', 'HomeAfterLoginPage', 'CreateNewRepositoryPage'
+           , 'RepositoryCodePage']

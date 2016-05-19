@@ -27,6 +27,9 @@ class BaseTestCase(unittest.TestCase):
 
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
+        return cls.driver
+    def test_1(self):
+        self.assertRegex()
 
     @classmethod
     def tearDownClass(cls):

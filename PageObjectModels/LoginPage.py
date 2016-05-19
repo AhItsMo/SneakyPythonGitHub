@@ -30,19 +30,19 @@ class LoginPage(BasePage):
     def sign_in(self, username, password):
         self.driver.find_element(*self.username_box).send_keys(username)
         self.driver.find_element(*self.password_box).send_keys(password)
-        self.driver.find_element(*self.sign_in_button).click()
+        self.driver.find_element(*self.login_sign_in_button).click()
 
     #   Verify that clicking the forget password button will navigate the user to the Reset your password Page
     def forget_password_text(self):
         self.driver.find_element(*self.forgot_password_link).click()
 
     #   Return whether the Profile Drop down is displayed
-    def is_profile_drop_down_displayed(self, current_page):
-        current_page.assertTrue(self.driver.find_element(*self.view_profile_drop_down).is_displayed())
+    def is_profile_drop_down_displayed(self, current_test):
+        current_test.assertTrue(self.driver.find_element(*self.view_profile_drop_down).is_displayed())
 
     #   Asserts that a login error occurred by verifying that an error message is displayed
-    def is_login_error_message_displayed(self, current_page):
-        current_page.assertTrue(self.driver.find_element(*self.incorrect_username_or_password_label).is_displayed())
+    def is_login_error_message_displayed(self, current_test):
+        current_test.assertTrue(self.driver.find_element(*self.incorrect_username_or_password_label).is_displayed())
 
     #   Return whether the Sign in to GitHub label is displayed
     def sign_in_to_github_label_is_displayed(self):
