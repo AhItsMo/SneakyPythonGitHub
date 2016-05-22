@@ -17,6 +17,7 @@ class BasePage(object):
                                                  "div > ul > a:nth-child(1)")
 
     #   Properties
+    url = "https://github.com"
 
     #   Methods
 
@@ -86,6 +87,12 @@ class BasePage(object):
             self.driver.find_element(*self.username_box).send_keys("sneakypythontestuser")
             self.driver.find_element(*self.password_box).send_keys("000000aa")
             self.driver.find_element(*self.login_sign_in_button).click()
+
+    #   Login using fixed credentials
+    def login(self):
+        self.driver.find_element(*self.username_box).send_keys("sneakypythontestuser")
+        self.driver.find_element(*self.password_box).send_keys("000000aa")
+        self.driver.find_element(*self.login_sign_in_button).click()
 
     # read data from a certain sheet in the Test Data workbook "SneakyPythonGitHubTestData.xlsx"
     @staticmethod

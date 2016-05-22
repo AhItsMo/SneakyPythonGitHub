@@ -34,3 +34,8 @@ class HomeAfterLoginPage(BasePage):
     #   Click New Repository Button
     def click_new_repository_button(self):
         self.driver.find_element(*self.new_repository_button).click()
+
+    #   Open repository
+    def open_repository(self, repository_name):
+        selected_repository = (By.PARTIAL_LINK_TEXT, repository_name)
+        self.driver.find_element(*selected_repository).click()
