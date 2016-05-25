@@ -29,10 +29,9 @@ class BaseTestCase(unittest.TestCase):
         cls.driver.maximize_window()
         return cls.driver
 
-
-    # @classmethod
-    # def tearDownClass(cls):
-    #     cls.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

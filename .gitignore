@@ -89,6 +89,7 @@ var/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+/Reports_JUnit
 
 # Unit test / coverage reports
 htmlcov/
