@@ -6,7 +6,10 @@ from Utilities.BaseTestSuite import BaseTestSuite
 selected_tests = [
     unittest.TestLoader().loadTestsFromTestCase(HomeBeforeLoginTests.HomeBeforeLoginTests),
     unittest.TestLoader().loadTestsFromTestCase(LoginTests.LoginTests),
-    unittest.TestLoader().loadTestsFromTestCase(HomeAfterLoginTests.HomeAfterLoginTests)
+    unittest.TestLoader().loadTestsFromTestCase(HomeAfterLoginTests.HomeAfterLoginTests),
+    unittest.TestLoader().loadTestsFromTestCase(CreateRepositoryTests.CreateRepositoryTests),
+    unittest.TestLoader().loadTestsFromTestCase(DeleteRepositoryTests.DeleteRepositoryTests),
+    unittest.TestLoader().loadTestsFromTestCase(IntegrationTests.IntegrationTests)
 ]
 
 #   Description and File Name are used to customize the Test Report HTML file.

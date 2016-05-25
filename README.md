@@ -19,6 +19,7 @@ POC for the test automation of GitHub with Selenium WebDriver and Python
 - xlrd
 - ipdb
 - behave
+- junit-viewer
 
 # Installed plugins
 - .ignore

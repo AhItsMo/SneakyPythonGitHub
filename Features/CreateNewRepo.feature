@@ -1,3 +1,4 @@
+@CreateNewRepo
 Feature: Create a new repository
     GitHub gives the user the ability to create new repositories.
     We need to make sure that a repository can be created easily without a problem,

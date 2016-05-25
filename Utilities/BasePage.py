@@ -12,7 +12,7 @@ class BasePage(object):
     username_box = (By.ID, "login_field")
     password_box = (By.ID, "password")
     login_sign_in_button = (By.XPATH, ".//*[@id='login']/form/div[4]/input[3]")
-    create_new_dropdown = (By.CSS_SELECTOR, "#user-links > li:nth-child(2) > a > svg > path")
+    create_new_dropdown = (By.CSS_SELECTOR, "svg.left > path:nth-child(1)")
     new_repository_list_item = (By.CSS_SELECTOR, "#user-links > li.header-nav-item.dropdown.js-menu-container.active > "
                                                  "div > ul > a:nth-child(1)")
 

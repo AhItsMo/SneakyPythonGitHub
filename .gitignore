@@ -20,6 +20,7 @@ tests/.cache
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
+/TestSuites/.cache
 .idea/dataSources.xml
 .idea/dataSources.local.xml
 .idea/sqlDataSources.xml
