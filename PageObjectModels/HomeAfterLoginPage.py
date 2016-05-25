@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+
 from Utilities.BasePage import BasePage
-from PageObjectModels.LoginPage import LoginPage
 
 
 class HomeAfterLoginPage(BasePage):
@@ -45,5 +44,5 @@ class HomeAfterLoginPage(BasePage):
     def get_first_repository_name(self):
         repository_listing = self.driver.find_element(*self.repositories_list)
         first_repository_listing = repository_listing.find_element(By.CLASS_NAME, "repo")
-        return first_repository_listing.get_attribute('innerHTML')
+        return str(first_repository_listing.get_attribute('innerHTML'))
 

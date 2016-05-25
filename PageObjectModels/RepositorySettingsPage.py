@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+
 from Utilities.BasePage import BasePage
 
 
@@ -27,8 +28,8 @@ class RepositorySettingsPage(BasePage):
     def click_settings_link(self):
         self.driver.find_element(*self.settings_link).click()
 
-    #   Click Delete Repository Button
-    def click_delete_repository_button(self, repository_name):
+    #   Delete the opened repository by clicking the Delete button and verifying the repository name
+    def delete_opened_repository(self, repository_name):
         self.driver.find_element(*self.delete_this_repository_button).click()
         self.driver.find_element(*self.repository_name_to_confirm_deletion_box).send_keys(repository_name)
         self.driver.find_element(*self.i_understand_the_consequences_button).click()
@@ -38,3 +39,12 @@ class RepositorySettingsPage(BasePage):
         deletion_confirmation_message = self.driver.find_element(*self.repository_is_deleted_label).text
         current_test.assertEqual('Your repository "SneakyPythonTestUser/' + repository_name +
                                  '" was successfully deleted.', deletion_confirmation_message)
+
+    #   Click the Delete Repository button
+    def click_delete_repository_button(self):
+        self.driver.find_element(*self.delete_this_repository_button).click()
+
+    #   Verify the name of the repository being deleted
+    def verify_repository_name_being_deleted(self, repository_name):
+        self.driver.find_element(*self.repository_name_to_confirm_deletion_box).send_keys(repository_name)
+        self.driver.find_element(*self.i_understand_the_consequences_button).click()

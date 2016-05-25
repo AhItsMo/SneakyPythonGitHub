@@ -1,6 +1,7 @@
 import unittest
-from Utilities.BaseTestCase import BaseTestCase
+
 from PageObjectModels import *
+from Utilities.BaseTestCase import BaseTestCase
 
 
 class DeleteRepositoryTests(BaseTestCase):
@@ -15,7 +16,7 @@ class DeleteRepositoryTests(BaseTestCase):
 
         repo_settings.click_settings_link()
 
-        repo_settings.click_delete_repository_button(repo_name)
+        repo_settings.delete_opened_repository(repo_name)
 
         repo_settings.repository_is_deleted_successfully(self, repo_name)
 

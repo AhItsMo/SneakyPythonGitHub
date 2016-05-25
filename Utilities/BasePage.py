@@ -1,6 +1,7 @@
-import xlrd
-import string
 import random
+import string
+
+import xlrd
 from selenium.webdriver.common.by import By
 
 
@@ -57,7 +58,6 @@ class BasePage(object):
     def current_page_title_verification(self, current_test, expected_page_title):
         return current_test.assertRegex(self.driver.title, expected_page_title,
                                         "The Expected Page is not loaded. Current page title is: " + self.driver.title)
-
 
     #   Navigate to URL
     def go_to_url(self, url):
