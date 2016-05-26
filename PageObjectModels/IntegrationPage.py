@@ -1,7 +1,7 @@
-from selenium.webdriver.common.by import By
-from Utilities.BasePage import BasePage
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+
+from Utilities.BasePage import BasePage
 
 
 class IntegrationPage(BasePage):
