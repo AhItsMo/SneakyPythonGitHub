@@ -1,8 +1,6 @@
 import os
 import sys
-
 sys.path.append(os.path.abspath(os.path.join(os.path.join(sys.path[0], os.pardir), os.pardir)))
-
 from behave import *
 from PageObjectModels import *
 from Utilities.TestData import NewRepository

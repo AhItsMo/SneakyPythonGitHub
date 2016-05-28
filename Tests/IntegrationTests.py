@@ -1,8 +1,11 @@
-import unittest
-from Utilities.BaseTestCase import BaseTestCase
-from PageObjectModels.IntegrationPage import IntegrationPage
-from ddt import ddt, data, unpack
 import time
+import unittest
+
+from ddt import ddt, data, unpack
+
+from PageObjectModels.IntegrationPage import IntegrationPage
+from Utilities.BaseTestCase import BaseTestCase
+
 
 @ddt
 class IntegrationTests(BaseTestCase):

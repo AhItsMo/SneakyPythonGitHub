@@ -36,7 +36,6 @@ class IntegrationPage(BasePage):
     def use_filter_integration_search_box(self, search_string):
         self.driver.find_element(*self.filter_integrations_search_box).send_keys(search_string)
 
-
     def is_results_displayed(self):
         try:
             list_of_element = self.driver.find_elements(*self.tools_displayed)
